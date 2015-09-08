@@ -1,0 +1,7 @@
+web:
+  build: .
+  command: tracd -p 6001 trac
+  ports:
+   - "6001:6001"
+  volumes:
+   - .:/repo
