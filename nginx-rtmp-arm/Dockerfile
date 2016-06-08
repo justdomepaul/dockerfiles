@@ -7,6 +7,7 @@ RUN rm -rf /var/lib/apt/lists/* && \
 RUN	mkdir -p /tmp/hls
 ADD	nginx.tar.gz /opt/
 
+EXPOSE 80
 EXPOSE 1935
 
 CMD ["/opt/nginx/sbin/nginx", "-g", "daemon off;"]
