@@ -31,12 +31,12 @@ RUN	apk update		&&	\
 
 
 RUN	cd /tmp/									&&	\
-	wget http://nginx.org/download/nginx-1.9.11.tar.gz				&&	\
+	wget http://nginx.org/download/nginx-1.10.1.tar.gz				&&	\
 	git clone https://github.com/arut/nginx-rtmp-module.git
 
 RUN	cd /tmp										&&	\
-	tar xzf nginx-1.9.11.tar.gz							&&	\
-	cd nginx-1.9.11									&&	\
+	tar xzf nginx-1.10.1.tar.gz							&&	\
+	cd nginx-1.10.1									&&	\
 	./configure										\
 		--prefix=/opt/nginx								\
 		--with-http_ssl_module								\
