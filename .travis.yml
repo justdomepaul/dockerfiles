@@ -1,0 +1,19 @@
+sudo: required
+language: bash
+branches:
+  only:
+  - master
+services:
+- docker
+before_install:
+- sudo apt-get update
+- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+script:
+- cd nginx-rtmp && chmod +x build.sh && ./build.sh
+- docker tag nginx-rtmp moiamond/nginx-rtmp
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push USER/nginx-rtmp;
+    fi
